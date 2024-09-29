@@ -2,7 +2,6 @@ package main
 
 import (
 	"github.com/create-go-app/net_http-go-template/pkg/configs"
-	"github.com/create-go-app/net_http-go-template/pkg/middlewares"
 	"github.com/create-go-app/net_http-go-template/pkg/routes"
 	"github.com/create-go-app/net_http-go-template/pkg/utils"
 	"github.com/gorilla/mux"
@@ -34,9 +33,6 @@ func main() {
 
 	// Register middleware.
 	router.Use(mux.CORSMethodMiddleware(router)) // enable CORS
-
-	// Use auth middleware
-	router.Use(middlewares.AuthMiddleware(router))
 
 	// Initialize server.
 	server := configs.ServerConfig(router)
